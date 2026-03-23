@@ -43,9 +43,15 @@ function typeText(text) {
 // ================== FETCH FROM VERCEL BACKEND ==================
 async function getStoryFromBackend(genre){
   try {
-    const res = await fetch(`/api/story?genre=${genre}`);
+    const res = await fetch(`/api/story?genre=${encodeURIComponent(genre)}`);
+
+    if (!res.ok) {
+      throw new Error("Server error");
+    }
+
     const data = await res.json();
     return data;
+
   } catch (error) {
     return {
       story: "⚠️ Cannot connect to server. Try again.",
@@ -96,8 +102,13 @@ async function nextStep(){
 
   const data = await getStoryFromBackend(currentGenre);
 
-  typeText(data.story);
+  // Safety check
+  if (!data || !data.story || !data.choices) {
+    typeText("⚠️ Something went wrong.");
+    return;
+  }
 
+  typeText(data.story);
   choicesDiv.innerHTML = "";
 
   data.choices.forEach(choice=>{
