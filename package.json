@@ -1,0 +1,24 @@
+{
+  "name": "interactivestory",
+  "version": "1.0.0",
+  "description": "This is a simple interactive story project using HTML, CSS, and JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajashree0417/InteractiveStory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rajashree0417/InteractiveStory/issues"
+  },
+  "homepage": "https://github.com/rajashree0417/InteractiveStory#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
